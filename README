@@ -1,0 +1,30 @@
+SquidSwitch - a toy to bring up or bring down the Squid proxy service
+Author: Kunshan Wang <wks1986@gmail.com>
+
+My family use one 3g wireless modem for Internet access.  The typical use
+case is to plug the modem on my laptop and other machines at home connect
+to my Squid proxy server via Wifi.
+
+Since I usually carry my laptop around, the Squid server should not be
+always on for security reason.  But I am also tired of typing
+'systemctl start squid.service' again and again.  So I added an system
+status icon to the GnomeShell panel so as to quickly switch Squid on or off.
+
+This extension is tested on Fedora 15.
+
+In order to use it, you must configure your /etc/dbus-1/system.d/org.freedesktop.systemd1.conf
+
+Add these lines to allow normal user to control the squid service.
+
+<policy user="your username here">
+  <allow send_destination="org.freedesktop.systemd1"
+         send_path="/org/freedesktop/systemd1/unit/squid_2eservice"
+         />
+  
+  <allow receive_sender="org.freedesktop.systemd1"
+         receive_path="/org/freedesktop/systemd1/unit/squid_2eservice"
+         />
+</policy>
+
+Then put the squidswitch@wks.github.com folder into ~/.local/share/gnome-shell/extensions and enjoy it!
+

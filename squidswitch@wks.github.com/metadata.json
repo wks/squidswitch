@@ -1,0 +1,7 @@
+{
+    "uuid": "squidswitch@wks.github.com",
+    "name": "Squid Switch",
+    "description":"Turn on or off the Squid proxy service.",
+    "url":"http://github.com/wks/squidswitch",
+    "shell-version": ["3.0.2"] 
+}
